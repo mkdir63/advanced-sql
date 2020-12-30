@@ -1,0 +1,1 @@
+select * from `advanced-sql-challenges`.`subscription_price_changes`.`subscription_price_changes`

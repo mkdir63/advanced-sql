@@ -1,0 +1,17 @@
+# Test Config YML File
+
+# When you run dbt test, dbt iterates through your YAML files, and constructs a query for each test.
+# Each query will return the number of records that fail the test. If this number is 0, then the test is successful.
+
+
+version: 2                    # the only supported version for these files
+
+models:
+  - name: subscription_changes           # name of the model to test
+    description: "{{ doc('subscription_changes') }}"
+    columns:                  # name of columns to test
+      - name: subscription_id
+        description: primary key of the model
+        tests:                # kinds of tests performed
+          - unique                # look for duplicated values
+          - not_null              # look for NULL values
